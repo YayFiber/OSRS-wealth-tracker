@@ -1,0 +1,42 @@
+.itemPreview {
+  border: 2px solid;
+  width: 40%;
+  margin: auto;
+  margin-top: 10px;
+  background-color: #ffffff50;
+  padding: 10px;
+  max-width: 300px;
+}
+
+.itemPreview h4 {
+  margin-top: 0px;
+}
+
+.itemPreview .currentPrice { 
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.positive {
+  background-color: green;
+  color: white;
+  width: fit-content;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.negative {
+  background-color: red;
+  color: white;
+  width: fit-content;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.itemPreview img {
+  width: 50px;
+}
+
+.itemPreview p {
+  font-size: 12px
+}
