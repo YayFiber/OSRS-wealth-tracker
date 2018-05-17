@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import numberCleaner from '../../Data/numberCleaner'
 import './ItemPreview.css'
 
 class ItemPreview extends Component{
@@ -6,7 +7,7 @@ class ItemPreview extends Component{
     super(props)
 
     this.state = {
-      buyPrice: 0
+      buyPrice: ''
     }
   }
 
@@ -15,6 +16,12 @@ class ItemPreview extends Component{
       return 'zeroBABY'
     }
     return price.includes('+') ? 'positive' : 'negative'
+  }
+
+  setAtCurrentPrice = (e) => {
+    e.preventDefault()
+    const currentPrice = numberCleaner(this.props.item.current.price).toString()
+    this.setState({ buyPrice: currentPrice })
   }
 
   actionHandler = (e) => {
@@ -44,6 +51,7 @@ class ItemPreview extends Component{
               this.setState({ buyPrice: e.target.value })
             }}
           />
+          <button onClick={(e) => this.setAtCurrentPrice(e)}>Today's Price</button>
           <br />
           <button type='submit'>Add item to bank!</button>
         </form>
