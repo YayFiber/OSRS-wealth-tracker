@@ -13,7 +13,10 @@ const UserItems = (props) => {
       return total + parseInt(numberCleaner(item.item.current.price))
     }, 0)
 
-    return totalValue - totalSpent
+    return { 
+      totalChange: totalValue - totalSpent,
+      totalSpent
+    }
   }
 
   const priceChangeCheck = (price) => {
@@ -38,7 +41,8 @@ const UserItems = (props) => {
     return displayItems.length === 0 ? 
       <h4>You haven't added any items yet!</h4> :
       <div>
-        <h4> Since you purchased your items, your total tracked wealth has changed by <span className={priceChangeCheck(netChange())}> {netChange().toLocaleString()} </span> </h4>
+        <h3>Total wealth: {netChange().totalSpent.toLocaleString()}</h3>
+        <h4> Since you purchased your items, your total tracked wealth has changed by <span className={priceChangeCheck(netChange().totalChange)}> {netChange().totalChange.toLocaleString()} </span> </h4>
         <hr />
         <table>
           <tr>
