@@ -29,6 +29,7 @@ const UserItems = (props) => {
         <td className='tdCurrentPrice'>{numberCleaner(item.item.current.price).toLocaleString()}</td>
         <td className='tdComparison'>
         {(numberCleaner(item.item.current.price) - numberCleaner(item.buyPrice)).toLocaleString()}</td>
+        <td className='deleteItem' onClick={() => props.removeItem(item)}>Delete</td>
       </tr>
     )
   })
@@ -46,6 +47,7 @@ const UserItems = (props) => {
             <th>Your buy price</th>
             <th>Current Price</th>
             <th>Change</th>
+            <th>Remove Item</th>
           </tr>
           {displayItems}
         </table>

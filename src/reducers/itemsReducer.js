@@ -3,10 +3,14 @@ const itemsReducer = (state=[], action) => {
     case 'ADD_USER_ITEM' : 
       return [...state, {
         item: action.item, 
-        buyPrice: action.buyPrice
+        buyPrice: action.buyPrice,
+        uniqueID: Date.now()
       }]
-      default:
-        return state 
+    case 'REMOVE_USER_ITEM' :
+      let newState = state.filter(item => item.uniqueID !== action.uniqueID)
+      return newState
+    default:
+      return state 
   }
 } 
 

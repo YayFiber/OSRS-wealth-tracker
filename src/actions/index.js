@@ -6,6 +6,14 @@ const addUserItem = (item, buyPrice) => {
   }
 }
 
+const removeUserItem = (item) => {
+  return  {
+    type: 'REMOVE_USER_ITEM',
+    uniqueID: item.uniqueID
+  }
+}
+
 export {
-  addUserItem
+  addUserItem,
+  removeUserItem
 }
